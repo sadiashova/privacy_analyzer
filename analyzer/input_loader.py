@@ -6,7 +6,7 @@ MAX_CHARS = 200_000
 def load_from_text(text: str) -> str:
     """Accept pasted text and clean it a little."""
     text = (text or "").strip()
-    if len(text) < 200:
+    if len(text) < 50:
         raise ValueError("Please paste at least a few paragraphs of policy text.")
     return text[:MAX_CHARS]
 
