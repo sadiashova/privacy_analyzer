@@ -1,0 +1,6 @@
+collection_true,collection_pred,purpose_true,purpose_pred,sharing_true,sharing_pred,tracking_true,tracking_pred,retention_true,retention_pred,security_true,security_pred,rights_true,rights_pred
+1,1,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,1,1
+0,0,1,1,1,1,1,1,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,1,1,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,1,1

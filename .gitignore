@@ -1,1 +1,16 @@
-﻿.venv/
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest cache
+.pytest_cache/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

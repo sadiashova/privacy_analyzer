@@ -51,3 +51,8 @@ urllib3==2.8.0
 uvicorn==0.54.0
 watchdog==6.0.0
 websockets==17.2
+joblib==1.6.0
+matplotlib==3.11.2
+scikit-learn==1.9.1
+scipy==1.18.1
+seaborn==0.13.2

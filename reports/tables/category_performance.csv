@@ -1,0 +1,8 @@
+Category,Precision,Recall,F1-score,Support
+Data collection,1.000,1.000,1.000,1
+Processing purpose,1.000,1.000,1.000,1
+Third-party sharing,1.000,1.000,1.000,1
+Tracking and profiling,1.000,1.000,1.000,1
+Data retention,1.000,1.000,1.000,1
+Security,0.000,0.000,0.000,0
+User rights and choices,1.000,1.000,1.000,2

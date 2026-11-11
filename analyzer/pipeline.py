@@ -1,7 +1,7 @@
+from analyzer.extractor import extract_findings
 from analyzer.input_loader import load_from_text, load_from_url
 from analyzer.language import detect_language
 from analyzer.preprocess import clean_text, split_sentences
-from analyzer.extractor import extract_findings
 from analyzer.risk_scorer import score_policy
 from analyzer.summariser import summarise
 
@@ -24,8 +24,8 @@ def analyze_policy(text: str | None = None, url: str | None = None) -> dict:
     cleaned = clean_text(raw_text)
     sentences = split_sentences(cleaned)
 
-    # Step 4: find privacy keywords
-    findings = extract_findings(sentences)
+    # Step 4: find privacy keywords using language context
+    findings = extract_findings(sentences, language=language)
 
     # Step 5: score the risk and write the summary
     risk = score_policy(findings, cleaned)

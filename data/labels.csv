@@ -1,0 +1,6 @@
+document_id,sentence,language,collection,purpose,sharing,tracking,retention,security,rights
+doc_001,"We collect your email address.","en",1,0,0,0,0,0,0
+doc_001,"You may request deletion of your information.","en",0,0,0,0,0,0,1
+doc_002,"We share usage data with analytics providers.","en",0,1,1,1,0,0,0
+doc_003,"Vi opbevarer dine personoplysninger i fem år.","da",0,0,0,0,1,0,0
+doc_003,"Du kan anmode om at få dine oplysninger slettet.","da",0,0,0,0,0,0,1
