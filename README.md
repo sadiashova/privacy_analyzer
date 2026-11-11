@@ -15,7 +15,7 @@ A lightweight NLP tool designed to analyze privacy policies (in English and Dani
   6. `security` - Safeguards, encryption, and protection measures
   7. `rights` - User rights (access, deletion, correction, opt-out)
 - **Risk Scoring Engine:** Evaluates policy risk score and assigns a risk tier (`Low`, `Medium`, `High`) based on weighted disclosure factors.
-- **Interactive Web App:** Streamlit-powered dashboard for interactive analysis.
+- **Interactive Web App & API:** Modern dashboard ready for Vercel Serverless deployment, local execution, and Streamlit.
 
 ## Project Structure
 
@@ -29,12 +29,16 @@ privacy_analyzer/
 │   ├── risk_scorer.py     # Privacy risk scoring logic
 │   ├── summariser.py      # Bullet-point policy summarization
 │   └── pipeline.py        # End-to-end analysis orchestration
+├── api/
+│   └── index.py           # Vercel serverless entrypoint
 ├── data/
 │   └── labels.csv         # Benchmark labeled dataset
 ├── reports/               # Performance evaluation and metrics scripts
 ├── tests/                 # Unit test suite
-├── app.py                 # Streamlit web application
+├── app.py                 # ASGI Web Application & Vercel Entrypoint (Starlette)
+├── streamlit_app.py       # Streamlit Web Application
 ├── demo.py                # Demonstration script
+├── vercel.json            # Vercel deployment configuration
 └── requirements.txt       # Project dependencies
 ```
 
@@ -45,14 +49,23 @@ privacy_analyzer/
 pip install -r requirements.txt
 ```
 
-### 2. Run the Demo
+### 2. Launch the Web Interface
+
+#### Option A: Run Fast Web Dashboard (Recommended for Vercel & Local)
+```bash
+python app.py
+```
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+
+#### Option B: Run via Streamlit
+```bash
+streamlit run streamlit_app.py
+```
+(Or `streamlit run app.py`)
+
+### 3. Run the Demo CLI
 ```bash
 python demo.py
-```
-
-### 3. Launch the Web Interface
-```bash
-streamlit run app.py
 ```
 
 ### 4. Run Unit Tests
@@ -64,3 +77,27 @@ Or run with Python directly:
 python -c "from tests import test_risk_scorer, test_extractor, test_pipeline"
 ```
 
+## Deployment
+
+### Deploying on Vercel
+This repository is configured for zero-config Vercel deployment:
+1. Push your repository to GitHub.
+2. In [Vercel](https://vercel.com), click **Add New Project** and select `privacy_analyzer`.
+3. Click **Deploy**. Vercel will automatically detect `app.py` and deploy the Serverless web application and API.
+
+### REST API Endpoints
+
+- `GET /` — Serves the interactive Privacy Policy Inspector dashboard.
+- `POST /api/analyze` (or `/analyze`) — Analyze policy from text or URL.
+  ```json
+  {
+    "text": "We collect your email and share it with advertising partners..."
+  }
+  ```
+  or
+  ```json
+  {
+    "url": "https://example.com/privacy"
+  }
+  ```
+- `GET /api/health` — Health check endpoint returning `{"status": "ok"}`.
